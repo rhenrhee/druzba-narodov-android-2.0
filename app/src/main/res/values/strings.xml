@@ -1,0 +1,144 @@
+<resources>
+    <string name="app_name">Дружба народов</string>
+    <string name="toast_message">"1.   Введите Ваше имя, которое будет отображаться в профиле.
+
+ 2.   Введите верный адрес электронной почты.
+        например:   abc@xyz.com
+
+ 3.   Придумайте пароль к Вашему профилю
+        для обеспечения безопасности.
+
+              Наслаждайтесь игрой! ☺</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="title_activity_navigation_activity">Дружба народов</string>
+    <string name="title_activity_navigation_">Главное меню</string>
+    <string name="title_activity_about_us">О приложении</string>
+    <string name="note">Дружба народов - это умное приложение с простым и оптимизированным пользовательским интерфейсом. Дружба народов имеет все категории вопросов викторины, которые используются в изучении разных культур разных народов</string>
+    <string name="title_activity_settings">Настройки</string>
+    <string name="title_activity_questions">Вопросы</string>
+    <string name="title_activity_main3">Main3Activity</string>
+    <string name="title_activity_score_card">Итоги викторины</string>
+    <string name="title_activity_setting_activity">Настройки</string>
+    <string name="email_content"></string>
+    <string name="link"><u></u></string>
+    <string name="last_content"></string>
+
+    <string name="main_menu_single_player_btn">Одиночная</string>
+    <string name="main_menu_multi_player_btn">Турнир</string>
+    <string name="main_menu_toolbar_title">Игра</string>
+    <string name="main_menu_update_player_profile_internet_error">Не удалось обновить профиль. Отсутствует соединение с интернетом</string>
+    <string name="main_menu_show_nations">Народы России</string>
+
+    <string name="left_menu_single_player_btn">Одиночная</string>
+    <string name="left_menu_multi_player_btn">Турнир</string>
+    <string name="left_menu_rating_btn">Рейтинг</string>
+    <string name="left_menu_help_btn">Помощь</string>
+    <string name="left_menu_exit_btn">Выйти</string>
+    <string name="left_menu_enter_btn">Войти</string>
+
+    <string name="left_menu_follow_youtube_btn">YouTube</string>
+    <string name="left_menu_follow_vk_btn">Вконтакте</string>
+    <string name="left_menu_follow_instagram_btn">Instagram</string>
+    <string name="left_menu_follow_facebook_btn">Facebook</string>
+
+    <string name="profile_settings_dialog_fragment_title">Укажите имя и аватар</string>
+
+    <string name="exit_dialog_title">Вы точно хотите выйти?</string>
+    <string name="exit_dialog_cancel_btn_title">Отмена</string>
+    <string name="exit_dialog_exit_btn_title">Выйти</string>
+
+    <string name="categories_fragment_toolbar_title">Языковые семьи</string>
+
+    <string name="subcategories_fragment_toolbar_title">Этнические ветви</string>
+
+    <string name="offer_tradition_fragment_toolbar_title">Предложить традицию</string>
+    <string name="offer_tradition_fragment_send_button_title">Отправить</string>
+    <string name="offer_tradition_fragment_successful_offer_msg">Ваше предложение отправлено</string>
+    <string-array name="offer_tradition_fragment_dialog_list">
+        <item>Сделать фото</item>
+        <item>Выбрать из галереи</item>
+    </string-array>
+
+    <string name="single_player_toolbar_title">Одиночная игра</string>
+    <string name="single_player_question_index">%d-й вопрос</string>
+
+    <string name="game_results_fragment_toolbar_title">Ваши результаты</string>
+    <string name="game_results_fragment_questions_num">%1$d из %2$d</string>
+    <string name="game_results_fragment_continue_button">Продолжить</string>
+    <string name="game_results_fragment_answer_num">Правильных ответов:</string>
+    <string name="game_results_fragment_total_time">Потрачено времени</string>
+    <string name="game_results_fragment_total_score">Заработано очков</string>
+
+    <string name="auth_dialog_title">Для участия в дуэли, необходимо авторизоваться</string>
+    <string name="auth_dialog_login_button">Войти</string>
+    <string name="auth_dialog_cancel_text_view"><u>Отмена</u></string>
+
+    <string name="auth_fragment_recover_password"><u>Забыли пароль?</u></string>
+    <string name="auth_fragment_registration"><u>Зарегистрироваться</u></string>
+    <string name="auth_fragment_toolbar_title">Вход</string>
+    <string name="auth_fragment_login_button">Войти</string>
+    <string name="auth_fragment_on_success_login">Вы успешно авторизованы</string>
+    <string name="auth_fragment_on_login_failed">Вы ввели неверный логин или пароль</string>
+
+    <string name="input_whitespaces_error">E-mail и пароль не должны содержать пробелы</string>
+    <string name="input_empty_string_error">Введите ваш E-mail и пароль</string>
+    <string name="input_email_format_error">E-mail имеет не верный формат</string>
+    <string name="input_password_length_error">Длина пароля должна быть не менее 6 символов</string>
+    <string name="input_password_bad_characters_error">Пароль должен содержать только буквы и цифры</string>
+    <string name="input_repeat_password_error">Пароли не совпадают</string>
+    <string name="input_empty_email_error">Введите ваш E-mail</string>
+    <string name="input_key_invalid_error">Вы ввели неверный ключ</string>
+    <string name="input_keys_not_equals">Полученный и веденный ключи не совпадают</string>
+    <string name="input_empty_password_error">Введите пароль</string>
+    <string name="input_email_with_whitespaces_error">E-mail не должен содержать пробелы</string>
+    <string name="input_empty_key_error">Введите ключ</string>
+
+    <string name="registration_fragment_toolbar_title">Регистрация</string>
+    <string name="registration_fragment_successful_registration_msg">Вы успешно зарегистрировавались</string>
+    <string name="registration_fragment_email_already_user_error">Указанный вами e-mail уже используется</string>
+
+    <string name="password_recovery_toolbar_title">Восстановление пароля</string>
+
+    <string name="email_fragment_password_edit_hint">Введите E-mail</string>
+    <string name="email_fragment_send_button">Выслать пароль</string>
+
+    <string name="key_fragment_edit_hint">Введите ключ</string>
+    <string name="key_fragment_confirm_key_button_text">Подтвердить ключ</string>
+
+    <string name="password_recovery_fragment_key_hint">Введите ключ</string>
+    <string name="password_recovery_fragment_password_hint">Новый пароль</string>
+    <string name="password_recovery_confirm_password_button">Подтвердить</string>
+
+    <string name="email_hint">E-mail</string>
+    <string name="password_hint">Пароль</string>
+    <string name="repeat_password_hint">Повторите пароль</string>
+
+    <string name="fragment_rating_toolbar_title">Рейтинг Топ-50</string>
+
+    <string name="fragment_help_toolbar_title">Помощь</string>
+
+    <string name="fragment_multi_player_toolbar_title">Турнир</string>
+
+    <string name="progress_dialog_loading_questions_title">Идет загрузка вопросов</string>
+    <string name="failed_to_download_questions_internet_error">Отсутствует интернет соединение. Не удалось скачать вопросы</string>
+    <string name="failed_to_download_question_error">Не удалось скачать вопросы</string>
+
+    <string name="tour_layout_tour_num">%1$d тур</string>
+
+    <string name="multi_player_fragment_toolbar_title">Турнир - %d тур</string>
+
+    <string name="tour_fragment_toolbar_title">Турнирная таблица</string>
+
+    <string name="internet_connection_error">Отсутствует соединение с интернетом</string>
+
+    <string name="prepare_battle_fragment_internet_connected">Интернет соединение восстановлено</string>
+    <string name="prepare_battle_fragment_internet_connection_lost">Интернет соединение потеряно</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

@@ -1,45 +1,40 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+# QuizBook
+QuizBook is an Android app in which users can play quizzes is 10 different categories with nearly 300 questions in total.
+This repository is made for the purpose to showcase my project for learning purposes and should not be used commercially.
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+The salient features of the app are:
+   1. Login is provided to the user so that only that person can access the app.
+   2. Timer for the quiz to make the quizzing more interesting.
+   3. User can see own best score in different categories.
+   4. App also has a beautiful sound option that can also be muted.
+   5. User can contact the developer of the app for any queries.
+   6. User can also share the app among their friends by email.
+   
+The app is designed with Google Material Design that supports the Android versions from Kitkat 4.4.0 to Naugat 7.7.1 
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+If you want to contact me, then feel free to ping me here: https://kvikesh800.wixsite.com/learner/contact
 
----
+### You can download the .apk file of the project at: https://github.com/vikesh8860/QuizBook/releases/latest
 
-## Edit a file
+### **I also highly recommend you to suggest some improvements in the project.**
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+# Screenshots
+| ![main_first](https://user-images.githubusercontent.com/11665612/27259081-878e3e14-5428-11e7-8232-0819cef68906.png) | ![mian_second](https://user-images.githubusercontent.com/11665612/27259088-ad4e6552-5428-11e7-8b65-d7c01781345a.png) | ![categories1](https://user-images.githubusercontent.com/11665612/27259090-b33470d8-5428-11e7-987c-8bfa12f8b3f0.png) |
+|:---:|:---:|:---:|
+| **Main Home Page (First time login)** | **Main Home Page (Normal login)** | **Categories** |
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+| ![categories2](https://user-images.githubusercontent.com/11665612/27259091-b6c24770-5428-11e7-9dc7-d9c2b7a7eee1.png) | ![navigation](https://user-images.githubusercontent.com/11665612/27259094-c45c7086-5428-11e7-8b94-a3d6718b1259.png) | ![play](https://user-images.githubusercontent.com/11665612/27259095-c80fec12-5428-11e7-8c02-794b87c59e59.png) |
+|:---:|:---:|:---:|
+| **More categories...** | **Navigation drawer** | **Start the game** |
 
----
+| ![question2](https://user-images.githubusercontent.com/11665612/27259097-d2685a32-5428-11e7-8b04-d74c18d26952.png) | ![stats](https://user-images.githubusercontent.com/11665612/27259099-d7e85c78-5428-11e7-85f1-4372122c356f.png) | ![highscore](https://user-images.githubusercontent.com/11665612/27259101-ddca2cde-5428-11e7-927a-63481ec88d92.png) |
+|:---:|:---:|:---:|
+| **Questions screen** | **Statistics** | **High score screen** |
 
-## Create a file
 
-Next, you’ll add a new file to this repository.
+| ![settings](https://user-images.githubusercontent.com/11665612/27259103-e20f57d8-5428-11e7-9060-da9c622fa7b6.png) | ![help](https://user-images.githubusercontent.com/11665612/27259105-e5069b4a-5428-11e7-812a-865bf364cda7.png) | ![visitdeveloper](https://user-images.githubusercontent.com/11665612/27259107-e8d11fac-5428-11e7-8cc1-dad6e6e6105e.png) |
+|:---:|:---:|:---:|
+| **Settings window** | **Help window** | **Visit developer** |
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
-
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
-
----
-
-## Clone a repository
-
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
-
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
-
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+# Licence
+The following project is for learning purposes and intended not to be used for commercial purposes (Publish on Google Play Store)

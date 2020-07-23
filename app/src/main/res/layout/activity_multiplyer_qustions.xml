@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_2"
+    android:layout_height="match_parent"
+    tools:context=".multyplayer.MultiplyerQuestions">
+<FrameLayout
+    android:id="@+id/root_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+
+    tools:context=".multyplayer.MultiplyerQuestions">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".Questions"
+        >
+        <com.github.lzyzsd.circleprogress.DonutProgress
+            android:id="@+id/donut_progress"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:visibility="invisible"
+            android:layout_alignParentRight="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/donut_progress"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Questions"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="#393737"
+                android:textSize="20sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal"
+                android:layout_gravity="bottom"
+                android:paddingStart="20sp"
+                android:paddingEnd="20sp"
+                android:background="@color/mainMenuDrawerPrimaryDark">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_weight="2"
+                    android:layout_height="80dp"
+                    android:paddingStart="10sp"
+                    android:paddingEnd="15sp">
+                    <TextView
+                        android:id="@+id/name_playerOne"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="#FFF"
+                        android:textSize="15sp"
+                        android:text="Игрок 1">
+
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingStart="20sp"
+                    android:paddingEnd="20sp">
+                    <TextView
+                        android:id="@+id/player_one_nickname_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="10sp"
+                        android:paddingEnd="10sp"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="#FFF"
+                        android:textSize="20sp"
+                        android:text="0">
+                    </TextView>
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="#FFF">
+                    </View>
+                    <TextView
+                        android:id="@+id/player_two_nickname_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="#FFF"
+                        android:textSize="20sp"
+                        android:text="0">
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:layout_weight="2"
+                    android:paddingStart="15sp"
+                    android:paddingEnd="10sp">
+                    <TextView
+                        android:id="@+id/name_playerTwo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="#FFF"
+                        android:textSize="15sp"
+                        android:text="Игрок 2">
+
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+
+                    <Button
+                        android:id="@+id/OptionA"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+
+                        android:onClick="onClick"
+                        android:background="@drawable/button_blue"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:textAlignment="center"
+                        android:visibility="invisible"
+                        android:textAllCaps="false"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+                    <Button
+                        android:id="@+id/OptionB"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/button_blue"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:onClick="onClick"
+                        android:padding="10dp"
+                        android:visibility="invisible"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/OptionC"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_blue"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:padding="10dp"
+                        android:visibility="invisible"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:onClick="onClick"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+                    <Button
+                        android:id="@+id/OptionD"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:visibility="invisible"
+                        android:textAlignment="center"
+                        android:onClick="onClick"
+                        android:background="@drawable/button_blue"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:textAllCaps="false"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <Button
+        android:id="@+id/play_button"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:onClick="onClick"
+        android:text="Играть"
+        android:visibility="visible"
+        android:textSize="40dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:textColor="#fff"
+        android:layout_margin="@dimen/fab_margin"
+        android:background="@drawable/custom_option" />
+    <androidx.cardview.widget.CardView
+        android:visibility="gone"
+        android:id="@+id/result_fist_player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginStart="20dp"
+        app:cardBackgroundColor="@color/mainMenuDrawerPrimaryDark"
+        android:layout_marginEnd="20dp">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:text="Вы закончили игру первым. Ожидайте второго игрока.При выходе из игры вам засчитается поражение"/>
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>
+</ScrollView>

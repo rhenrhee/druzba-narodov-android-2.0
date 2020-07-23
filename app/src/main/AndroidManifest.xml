@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.druzbanarodov.relativlayoutjava">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name="com.druzbanarodov.relativlayoutjava.push.ApplicationClass"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.druzbanarodov.relativlayoutjava.filter.filter"></activity>
+        <activity android:name="com.druzbanarodov.relativlayoutjava.multyplayer.ResultQuest" />
+        <activity android:name="com.druzbanarodov.relativlayoutjava.character_choice" />
+        <activity
+            android:name="com.druzbanarodov.relativlayoutjava.MainActivity"
+            android:label="Дружба народов"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.druzbanarodov.relativlayoutjava.Navigation_Nome_Menu"
+            android:label=""
+            android:parentActivityName="com.druzbanarodov.relativlayoutjava.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.druzbanarodov.relativlayoutjava.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.druzbanarodov.relativlayoutjava.multyplayer.Multyplayer_Activity"
+            android:label="Турнир"
+            android:parentActivityName="com.druzbanarodov.relativlayoutjava.Navigation_Nome_Menu">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.druzbanarodov.relativlayoutjava.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.druzbanarodov.relativlayoutjava.Navigation_Family"
+            android:label="Дружба народов"
+            android:parentActivityName="com.druzbanarodov.relativlayoutjava.Navigation_Nome_Menu"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.druzbanarodov.relativlayoutjava.Navigation_Nome_Menu" />
+        </activity>
+        <activity
+            android:name="com.druzbanarodov.relativlayoutjava.Navigation_Activity"
+            android:label="Дружба народов"
+            android:parentActivityName="com.druzbanarodov.relativlayoutjava.Navigation_Family"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.druzbanarodov.relativlayoutjava.Navigation_Family" />
+        </activity>
+        <activity
+            android:name="com.druzbanarodov.relativlayoutjava.AboutUs"
+            android:label="@string/title_activity_about_us"
+            android:parentActivityName="com.druzbanarodov.relativlayoutjava.Navigation_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.druzbanarodov.relativlayoutjava.Navigation_Activity" />
+        </activity>
+        <activity
+            android:name="com.druzbanarodov.relativlayoutjava.multyplayer.MultiplyerQuestions"
+            android:label="Вопросы"
+            android:parentActivityName="com.druzbanarodov.relativlayoutjava.Navigation_Nome_Menu"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.druzbanarodov.relativlayoutjava.Navigation_Activity" />
+        </activity>
+        <activity
+            android:name="com.druzbanarodov.relativlayoutjava.Questions"
+            android:label="Вопросы"
+            android:parentActivityName="com.druzbanarodov.relativlayoutjava.Navigation_Activity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.druzbanarodov.relativlayoutjava.Navigation_Activity" />
+        </activity>
+        <activity
+            android:name="com.druzbanarodov.relativlayoutjava.Result"
+            android:label="Result" />
+        <activity
+            android:name="com.druzbanarodov.relativlayoutjava.ScoreCard"
+            android:label="Статистика"
+            android:parentActivityName="com.druzbanarodov.relativlayoutjava.Navigation_Activity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.druzbanarodov.relativlayoutjava.Navigation_Activity" />
+        </activity>
+        <activity
+            android:name="com.druzbanarodov.relativlayoutjava.Help"
+            android:label="Помощь" />
+        <activity
+            android:name="com.druzbanarodov.relativlayoutjava.Setting_activity"
+            android:label="@string/title_activity_setting_activity"
+            android:parentActivityName="com.druzbanarodov.relativlayoutjava.Navigation_Activity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.druzbanarodov.relativlayoutjava.Navigation_Activity" />
+        </activity>
+        <activity
+            android:name="com.druzbanarodov.relativlayoutjava.indoeuropean_slavic_activities.Indoeuropean_Navigation"
+            android:label="Индоевропейская семья"
+            android:parentActivityName="com.druzbanarodov.relativlayoutjava.Navigation_Family">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.druzbanarodov.relativlayoutjava.Navigation_Family" />
+        </activity>
+        <activity
+            android:name="com.druzbanarodov.relativlayoutjava.indoeuropean_slavic_activities.Altai_Navigation"
+            android:label="Алтайская семья"
+            android:parentActivityName="com.druzbanarodov.relativlayoutjava.Navigation_Family">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.druzbanarodov.relativlayoutjava.Navigation_Family" />
+        </activity>
+        <activity
+            android:name="com.druzbanarodov.relativlayoutjava.indoeuropean_slavic_activities.NorthKaukazian_Navigation"
+            android:label="Северокавказская семья"
+            android:parentActivityName="com.druzbanarodov.relativlayoutjava.Navigation_Family">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.druzbanarodov.relativlayoutjava.Navigation_Family" />
+        </activity>
+        <activity
+            android:name="com.druzbanarodov.relativlayoutjava.indoeuropean_slavic_activities.UralUkagir_Navigation"
+            android:label="Уральско-юкагирская семья"
+            android:parentActivityName="com.druzbanarodov.relativlayoutjava.Navigation_Family">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.druzbanarodov.relativlayoutjava.Navigation_Family" />
+        </activity>
+        <activity
+            android:name="com.druzbanarodov.relativlayoutjava.indoeuropean_slavic_activities.Kartvelian_Navigation"
+            android:label="Картвельская семья"
+            android:parentActivityName="com.druzbanarodov.relativlayoutjava.Navigation_Family">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.druzbanarodov.relativlayoutjava.Navigation_Family" />
+        </activity>
+        <activity
+            android:name="com.druzbanarodov.relativlayoutjava.indoeuropean_slavic_activities.Paleoasian_Navigation"
+            android:label="Палеоазиатская семья"
+            android:parentActivityName="com.druzbanarodov.relativlayoutjava.Navigation_Family">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.druzbanarodov.relativlayoutjava.Navigation_Family" />
+        </activity>
+        <activity android:name="com.druzbanarodov.relativlayoutjava.multyplayer.Invite_Activity" />
+        <activity android:name="com.druzbanarodov.relativlayoutjava.multyplayer.InviteFrom_Activity" />
+    </application>
+
+</manifest>

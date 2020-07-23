@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<color name="colorPrimary">#1157AB</color>
+<color name="colorPrimaryDark">#1157AB</color>
+<color name="colorAccent">#FF4081</color>
+<color name="textColor">#000</color>
+<color name="colorButtonNormal">#009688</color>
+<color name="ripple_white">#fcfcfc</color>
+    <color name="colorPrimaryBlue">#1157AB</color>
+    <color name="colorPrimaryDarkBlue">#1157AB</color>
+    <color name="colorBackgroundCard">#64AA68</color>
+    <color name="colorInviteCard">#3BBFFA</color>
+    <color name="mainMenuDrawerPrimary">#1157AB</color>
+    <color name="mainMenuDrawerPrimaryDark">#F201418F</color>
+
+</resources>

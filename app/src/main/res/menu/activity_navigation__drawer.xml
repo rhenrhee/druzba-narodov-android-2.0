@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_scorecard"
+            android:icon="@drawable/ic_menu_rating"
+            android:title="Статистика" />
+        <item
+            android:id="@+id/nav_invites"
+            android:icon="@drawable/ic_menu_duel"
+            android:title="Приглашения" />
+
+
+    </group>
+
+    <item android:title="Подписывайтесь">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/share_drawer"
+                android:title="Поделиться" />
+            <!--<item
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/feedback_drawer"
+                android:title="Feedback" />
+            <item
+                android:id="@+id/nav_Help"
+                android:icon="@drawable/help_drawer"
+                android:title="Help" />
+            <item
+                android:id="@+id/nav_aboutus"
+                android:icon="@drawable/about_us_drawer"
+                android:title="Visit Developer" />-->
+            <item
+                android:id="@+id/follow_youtube"
+                android:icon="@drawable/ic_follow_youtube"
+                android:title="@string/left_menu_follow_youtube_btn" />
+            <item
+                android:id="@+id/follow_vk"
+                android:icon="@drawable/ic_follow_vk"
+                android:title="@string/left_menu_follow_vk_btn" />
+            <item
+                android:id="@+id/follow_instagram"
+                android:icon="@drawable/ic_follow_instagram"
+                android:title="@string/left_menu_follow_instagram_btn" />
+            <item
+                android:id="@+id/follow_facebook"
+                android:icon="@drawable/ic_follow_facebook"
+                android:title="@string/left_menu_follow_facebook_btn" />
+        </menu>
+    </item>
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/help"
+                android:icon="@drawable/ic_menu_help"
+                android:title="Помощь" />
+            <item
+                android:id="@+id/nav_Setting"
+                android:icon="@drawable/setting_drawer"
+                android:title="Настройки" />
+            <item
+                android:id="@+id/exit"
+                android:icon="@drawable/ic_menu_exit"
+                android:title="Выйти" >
+            </item>
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/bg_2"
+    tools:context=".Questions">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+<RelativeLayout
+    android:id="@+id/relative_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Questions">
+
+    <LinearLayout
+        android:id="@+id/family_choose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/f1"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/avator_m_2"
+                android:background="@drawable/button_blue"
+                android:paddingLeft="35dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="Индоевропейская семья"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/f2"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_blue"
+                android:drawableLeft="@drawable/avator_f_2"
+                android:paddingLeft="35dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="Алтайская семья"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/f3"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_blue"
+                android:drawableLeft="@drawable/avator_kavkaz"
+                android:paddingLeft="35dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="Северокавказская семья"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/f4"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_blue"
+                android:drawableLeft="@drawable/avator_f_3"
+                android:paddingLeft="35dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="Уральско-юкагирская семья"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/f5"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_blue"
+                android:drawableLeft="@drawable/avator_kavkaz"
+                android:paddingLeft="35dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="Картвельская семья"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/f6"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_blue"
+                android:drawableLeft="@drawable/avator_f_1"
+                android:paddingLeft="35dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="Палеоазиатская семья"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/whistle1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:onClick="onClick"
+                android:background="@drawable/button_blue"
+                android:foreground="?attr/selectableItemBackground"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:visibility="invisible"/>
+            <Button
+                android:id="@+id/whistle2"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/button_blue"
+                android:foreground="?attr/selectableItemBackground"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onClick"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:visibility="invisible"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/whistle3"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:onClick="onClick"
+                android:background="@drawable/button_blue"
+                android:foreground="?attr/selectableItemBackground"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:visibility="invisible"/>
+            <Button
+                android:id="@+id/whistle4"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/button_blue"
+                android:foreground="?attr/selectableItemBackground"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onClick"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:visibility="invisible"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/whistle5"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:onClick="onClick"
+                android:background="@drawable/button_blue"
+                android:foreground="?attr/selectableItemBackground"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:visibility="invisible"/>
+            <Button
+                android:id="@+id/whistle6"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/button_blue"
+                android:foreground="?attr/selectableItemBackground"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onClick"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:visibility="invisible"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/Questions"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:textAlignment="center"
+            android:textColor="#393737"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/OptionA"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:onClick="onClick"
+                android:background="@drawable/button_blue"
+                android:foreground="?attr/selectableItemBackground"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:visibility="invisible"/>
+            <Button
+                android:id="@+id/OptionB"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/button_blue"
+                android:foreground="?attr/selectableItemBackground"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onClick"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:visibility="invisible"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/OptionC"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:onClick="onClick"
+                android:background="@drawable/button_blue"
+                android:foreground="?attr/selectableItemBackground"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:visibility="invisible"/>
+            <Button
+                android:id="@+id/OptionD"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/button_blue"
+                android:foreground="?attr/selectableItemBackground"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="onClick"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:visibility="invisible"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
+    <Button
+        android:id="@+id/invite_button"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:background="@drawable/button_blue"
+        android:onClick="onClick"
+        android:text="Создать игру"
+        android:textSize="20dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:textColor="#fff" />
+    <Button
+        android:id="@+id/p1_button"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:onClick="onClick"
+        android:text="Готов"
+        android:textSize="40dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:textColor="#fff"
+        android:layout_margin="@dimen/fab_margin"
+        android:background="@drawable/custom_option"
+        android:visibility="invisible"/>
+    <Button
+        android:id="@+id/p2_button"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:onClick="onClick"
+        android:text="Готов"
+        android:textSize="40dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:textColor="#fff"
+        android:layout_margin="@dimen/fab_margin"
+        android:background="@drawable/custom_option"
+        android:visibility="invisible"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:visibility="invisible"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:paddingStart="27sp"
+        android:paddingEnd="25sp"
+        android:background="@color/mainMenuDrawerPrimaryDark">
+        <LinearLayout
+            android:layout_width="125sp"
+            android:layout_height="80dp"
+            android:paddingStart="15sp"
+            android:paddingEnd="15sp">
+            <TextView
+                android:id="@+id/player_one_nickname_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="#FFF"
+                android:textSize="20sp"
+                android:text="Игрок 1">
+
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:paddingStart="20sp"
+            android:paddingEnd="20sp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="10sp"
+                android:paddingEnd="10sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="#FFF"
+                android:textSize="20sp"
+                android:text="0">
+            </TextView>
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="#FFF">
+            </View>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="#FFF"
+                android:textSize="20sp"
+                android:text="0">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="125sp"
+            android:layout_height="80dp"
+            android:paddingStart="15sp"
+            android:paddingEnd="15sp">
+            <TextView
+                android:id="@+id/player_two_nickname_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="#FFF"
+                android:textSize="20sp"
+                android:text="Игрок 2">
+
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
