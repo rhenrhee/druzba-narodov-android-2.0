@@ -18,6 +18,13 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="Base.ThemeOverlay.AppCompat.Light" />

@@ -127,6 +127,8 @@
     <string name="failed_to_download_questions_internet_error">Отсутствует интернет соединение. Не удалось скачать вопросы</string>
     <string name="failed_to_download_question_error">Не удалось скачать вопросы</string>
 
+   <string name="tradition_hint">Добавить традицию</string>
+
     <string name="tour_layout_tour_num">%1$d тур</string>
 
     <string name="multi_player_fragment_toolbar_title">Турнир - %d тур</string>

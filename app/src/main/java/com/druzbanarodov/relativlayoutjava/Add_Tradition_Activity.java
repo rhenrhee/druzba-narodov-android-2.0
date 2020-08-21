@@ -1,4 +1,6 @@
 package com.druzbanarodov.relativlayoutjava;
 
-public class Add_Tradition_Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Add_Tradition_Activity extends AppCompatActivity {
 }

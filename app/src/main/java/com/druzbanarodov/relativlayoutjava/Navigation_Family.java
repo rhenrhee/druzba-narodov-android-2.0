@@ -13,6 +13,7 @@ import android.os.Handler;
 //import android.support.v7.app.ActionBarDrawerToggle;
 //import android.support.v7.app.AppCompatActivity;
 //import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -258,6 +259,7 @@ public class Navigation_Family extends AppCompatActivity
 
     }
 
+    //Back button DrawerMwnu
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -266,6 +268,23 @@ public class Navigation_Family extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
+    }
+
+    //Button in toolbar - add traditional
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_traditional_button, menu);
+        return true;
+    }
+
+    //onClickMethod on Menu toolbar item selected
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.action_search) {
+            Intent intent = new Intent(this, Add_Tradition_Activity.class);
+            startActivity(intent);
+        }
+        return true;
     }
 
     @Override

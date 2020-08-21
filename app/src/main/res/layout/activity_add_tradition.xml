@@ -1,6 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/bg_2"
+    tools:context=".Add_Tradition_Activity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edit_offer_tradition_fragment_offer_text"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/offer_tradition_dialog"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="35dp"
+            android:layout_marginTop="75dp"
+            android:padding="10dp"
+            android:gravity="top"
+            android:hint="Ваше предложение ..."
+            android:background="@drawable/default_edit_text" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/tradition_picture_0"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    app:riv_corner_radius="10dp"
+                    android:src="@drawable/icon_question"/>
+
+                <ImageView
+                    android:id="@+id/image_remove_selected_image_0"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignEnd="@id/tradition_picture_0"
+                    android:visibility="gone"
+                    android:src="@drawable/delete_filled"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/tradition_picture_1"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    app:riv_corner_radius="10dp"
+                    android:src="@drawable/icon_question"/>
+
+                <ImageView
+                    android:id="@+id/image_remove_selected_image_1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignEnd="@id/tradition_picture_1"
+                    android:visibility="gone"
+                    android:src="@drawable/delete_filled"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/tradition_picture_2"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    app:riv_corner_radius="10dp"
+                    android:src="@drawable/icon_question" android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"/>
+
+                <ImageView
+                    android:id="@+id/image_remove_selected_image_2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:visibility="gone"
+                    android:src="@drawable/delete_filled"
+                    android:layout_alignEnd="@+id/tradition_picture_2" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/button_offer_tradition_fragment_send_offer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:text="@string/offer_tradition_fragment_send_button_title"
+            android:textColor="@color/textColor"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/default_btn"/>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
