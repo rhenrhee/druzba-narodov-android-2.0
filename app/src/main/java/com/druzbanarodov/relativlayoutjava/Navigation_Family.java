@@ -64,14 +64,14 @@ public class Navigation_Family extends AppCompatActivity
         //Set name,email,image in  the navigation side drawer to those we enter in the login page
         String nav_header_name = sharedPreferences.getString("name", "xyz");
         String nav_header_email = sharedPreferences.getString("email", "abc@gmail.com");
-        String nav_header_gender = sharedPreferences.getString("gender", "Male");
+        String nav_header_gender = sharedPreferences.getString("gender", "Муж");
         View header = navigationView.getHeaderView(0);//Used to get a reference to navigation header
         nav_header_nam = (TextView) header.findViewById(R.id.nav_header_name);
         nav_header_emal = (TextView) header.findViewById(R.id.nav_header_email);
         nav_header_imag = (ImageView) header.findViewById(R.id.nav_header_image);
         nav_header_nam.setText(nav_header_name);
         nav_header_emal.setText(nav_header_email);
-        if (nav_header_gender.equals("Male")) {
+        if (nav_header_gender.equals("Муж")) {
             nav_header_imag.setImageResource(R.drawable.man);
         } else {
             nav_header_imag.setImageResource(R.drawable.female);

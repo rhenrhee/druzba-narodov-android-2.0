@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="druzba-narodov-android/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/druzba-narodov-android.iml" filepath="$PROJECT_DIR$/.idea/modules/druzba-narodov-android.iml" group="druzba-narodov-android" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="druzba-narodov-android-2.0/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/druzba-narodov-android-2.0.iml" filepath="$PROJECT_DIR$/.idea/modules/druzba-narodov-android-2.0.iml" group="druzba-narodov-android-2.0" />
     </modules>
   </component>
 </project>
