@@ -122,7 +122,7 @@
 
 
         <Button
-            android:id="@+id/button_offer_tradition_fragment_send_offer"
+            android:id="@+id/button_send_tradition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"

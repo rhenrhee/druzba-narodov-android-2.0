@@ -13,4 +13,6 @@
     <color name="mainMenuDrawerPrimary">#1157AB</color>
     <color name="mainMenuDrawerPrimaryDark">#F201418F</color>
 
+    <color name="white">#FFF</color>
+
 </resources>

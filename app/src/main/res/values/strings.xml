@@ -140,6 +140,12 @@
     <string name="prepare_battle_fragment_internet_connected">Интернет соединение восстановлено</string>
     <string name="prepare_battle_fragment_internet_connection_lost">Интернет соединение потеряно</string>
 
+   <string name="pick_action">Выберите действие</string>
+   <string-array name="choice_items">
+      <item>Сделать фото</item>
+      <item>Выбрать из галереи</item>
+   </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
