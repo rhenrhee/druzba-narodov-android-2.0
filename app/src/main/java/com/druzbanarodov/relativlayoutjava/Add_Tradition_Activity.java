@@ -46,7 +46,8 @@ import java.util.List;
 public class Add_Tradition_Activity extends AppCompatActivity{
     EditText about_tradition;
     Button send_traditional;
-    ImageView attachment_item0, attachment_item1, attachment_item2;
+    ImageView attachment_item0, attachment_item1, attachment_item2, deleteTraditionImage0,
+            deleteTraditionImage1, deleteTraditionImage2;
 
     private static final int SELECT_PHOTO_FROM_GALLERY = 1;
     private static final int TAKE_PHOTO_FROM_CAMERA = 2;
@@ -71,6 +72,10 @@ public class Add_Tradition_Activity extends AppCompatActivity{
         attachment_item0 = (ImageView) findViewById(R.id.tradition_picture_0);
         attachment_item1 = (ImageView) findViewById(R.id.tradition_picture_1);
         attachment_item2 = (ImageView) findViewById(R.id.tradition_picture_2);
+        deleteTraditionImage0 = (ImageView) findViewById(R.id.image_remove_selected_image_0);
+        deleteTraditionImage1 = (ImageView) findViewById(R.id.image_remove_selected_image_1);
+        deleteTraditionImage2 = (ImageView) findViewById(R.id.image_remove_selected_image_2);
+        //attachment_item0.setImageURI(Uri.parse("/storage/emulated/0/Android/data/com.druzbanarodov.relativlayoutjava/files/Pictures/JPEG_20200824_210530_7688138698567539826.jpg"));
 
         //setupWidgets(view);
         attachment_item0.setOnClickListener(new View.OnClickListener() {
@@ -97,21 +102,67 @@ public class Add_Tradition_Activity extends AppCompatActivity{
                 startDialogFragment();
             }
         });
+        deleteTraditionImage0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int imageIndex = (Integer) v.getTag();
+                Uri imageUri = traditionImagesUris.get(imageIndex);
+                traditionsPhotos.get(imageIndex).setImageResource(R.drawable.icon_question);
+                deleteTraditionPhotoImages.get(imageIndex).setVisibility(View.GONE);
+                traditionImagesUris.remove(imageIndex);
+
+                if (imageUri != null) {
+                    File file = new File(imageUri.getPath());
+                    file.delete();
+                }
+            }
+        });
+        deleteTraditionImage1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int imageIndex = (Integer) v.getTag();
+                Uri imageUri = traditionImagesUris.get(imageIndex);
+                traditionsPhotos.get(imageIndex).setImageResource(R.drawable.icon_question);
+                deleteTraditionPhotoImages.get(imageIndex).setVisibility(View.GONE);
+                traditionImagesUris.remove(imageIndex);
+
+                if (imageUri != null) {
+                    File file = new File(imageUri.getPath());
+                    file.delete();
+                }
+            }
+        });
+        deleteTraditionImage2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int imageIndex = (Integer) v.getTag();
+                Uri imageUri = traditionImagesUris.get(imageIndex);
+                traditionsPhotos.get(imageIndex).setImageResource(R.drawable.icon_question);
+                deleteTraditionPhotoImages.get(imageIndex).setVisibility(View.GONE);
+                traditionImagesUris.remove(imageIndex);
+
+                if (imageUri != null) {
+                    File file = new File(imageUri.getPath());
+                    file.delete();
+                }
+            }
+        });
     }
 
+
     private void setupWidgets(View root) {
-        getTraditionImages(root);
-        getDeleteImages(root);
+        getTraditionImages();
+        getDeleteImages();
         setupTraditionImageListener();
         //setupDeleteImageButtonsListener();
     }
 
-    private void getTraditionImages(View root) {
+    private void getTraditionImages() {
         traditionsPhotos = new ArrayList<>();
 
-        ImageView attachment_item0 = (ImageView) root.findViewById(R.id.tradition_picture_0);
-        ImageView attachment_item1 = (ImageView) root.findViewById(R.id.tradition_picture_1);
-        ImageView attachment_item2 = (ImageView) root.findViewById(R.id.tradition_picture_2);
+        ImageView attachment_item0 = (ImageView) findViewById(R.id.tradition_picture_0);
+        ImageView attachment_item1 = (ImageView) findViewById(R.id.tradition_picture_1);
+        ImageView attachment_item2 = (ImageView) findViewById(R.id.tradition_picture_2);
 
         attachment_item0.setTag(0);
         attachment_item1.setTag(1);
@@ -122,12 +173,12 @@ public class Add_Tradition_Activity extends AppCompatActivity{
         traditionsPhotos.add(attachment_item2);
     }
 
-    private void getDeleteImages(View root) {
+    private void getDeleteImages() {
         deleteTraditionPhotoImages = new ArrayList<>();
 
-        ImageView deleteTraditionImage0 = (ImageView) root.findViewById(R.id.image_remove_selected_image_0);
-        ImageView deleteTraditionImage1 = (ImageView) root.findViewById(R.id.image_remove_selected_image_1);
-        ImageView deleteTraditionImage2 = (ImageView) root.findViewById(R.id.image_remove_selected_image_2);
+        ImageView deleteTraditionImage0 = (ImageView) findViewById(R.id.image_remove_selected_image_0);
+        ImageView deleteTraditionImage1 = (ImageView) findViewById(R.id.image_remove_selected_image_1);
+        ImageView deleteTraditionImage2 = (ImageView) findViewById(R.id.image_remove_selected_image_2);
 
         deleteTraditionImage0.setTag(0);
         deleteTraditionImage1.setTag(1);
@@ -232,6 +283,7 @@ public class Add_Tradition_Activity extends AppCompatActivity{
 
     private void startCamera() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        getTraditionImages();
         if (intent.resolveActivity(getPackageManager()) != null) {
             // Create the File where the photo should go
             File photoFile = null;
@@ -289,10 +341,23 @@ public class Add_Tradition_Activity extends AppCompatActivity{
                 System.out.println("Индекс изображения: " + selectedImageIndex);
                 System.out.println("Ссылка на изображение: " + imageUri);
                 System.out.println("Ссылка на изображение: " + currentPhotoPath);
-                traditionsPhotos.get(selectedImageIndex).setImageURI(imageUri);
+                traditionsPhotos.get(selectedImageIndex).setImageURI(Uri.parse(currentPhotoPath));
             }
-
+            getDeleteImages();
             deleteTraditionPhotoImages.get(selectedImageIndex).setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void deleteImageButtonClick(View view) {
+        int imageIndex = (Integer) view.getTag();
+        Uri imageUri = traditionImagesUris.get(imageIndex);
+        traditionsPhotos.get(imageIndex).setImageResource(R.drawable.icon_question);
+        deleteTraditionPhotoImages.get(imageIndex).setVisibility(View.GONE);
+        traditionImagesUris.remove(imageIndex);
+
+        if (imageUri != null) {
+            File file = new File(imageUri.getPath());
+            file.delete();
         }
     }
 
