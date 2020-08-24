@@ -29,6 +29,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -75,6 +76,7 @@ public class Add_Tradition_Activity extends AppCompatActivity{
         attachment_item0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                selectedImageIndex = 0;
                 startDialogFragment();
             }
         });
@@ -82,12 +84,16 @@ public class Add_Tradition_Activity extends AppCompatActivity{
         attachment_item1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                selectedImageIndex = 1;
                 startDialogFragment();
             }
         });
         attachment_item2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                selectedImageIndex = 2;
                 startDialogFragment();
             }
         });
@@ -103,17 +109,17 @@ public class Add_Tradition_Activity extends AppCompatActivity{
     private void getTraditionImages(View root) {
         traditionsPhotos = new ArrayList<>();
 
-        ImageView traditionImage0 = (ImageView) root.findViewById(R.id.tradition_picture_0);
-        ImageView traditionImage1 = (ImageView) root.findViewById(R.id.tradition_picture_1);
-        ImageView traditionImage2 = (ImageView) root.findViewById(R.id.tradition_picture_2);
+        ImageView attachment_item0 = (ImageView) root.findViewById(R.id.tradition_picture_0);
+        ImageView attachment_item1 = (ImageView) root.findViewById(R.id.tradition_picture_1);
+        ImageView attachment_item2 = (ImageView) root.findViewById(R.id.tradition_picture_2);
 
-        traditionImage0.setTag(0);
-        traditionImage1.setTag(1);
-        traditionImage2.setTag(2);
+        attachment_item0.setTag(0);
+        attachment_item1.setTag(1);
+        attachment_item2.setTag(2);
 
-        traditionsPhotos.add(traditionImage0);
-        traditionsPhotos.add(traditionImage1);
-        traditionsPhotos.add(traditionImage2);
+        traditionsPhotos.add(attachment_item0);
+        traditionsPhotos.add(attachment_item1);
+        traditionsPhotos.add(attachment_item2);
     }
 
     private void getDeleteImages(View root) {
@@ -193,10 +199,11 @@ public class Add_Tradition_Activity extends AppCompatActivity{
                         );
                     }
                 } else {
+                    startCamera();
                     Toast.makeText(getApplicationContext(),"Доступ получен", Toast.LENGTH_SHORT);
                 }
             } else if (action == DialogAttachment.TAKE_PHOTO_FROM_GALLERY) {
-                //startGallery();
+                startGallery();
                 Toast.makeText(getApplicationContext(),"Доступ получен", Toast.LENGTH_SHORT);
             }
         });
@@ -225,30 +232,42 @@ public class Add_Tradition_Activity extends AppCompatActivity{
 
     private void startCamera() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        Uri imageUri = createImageUri();
-
-        traditionImagesUris.put(selectedImageIndex, imageUri);
-        System.out.println("Путь к файлу: " + imageUri);
-        //intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        startActivityForResult(intent, TAKE_PHOTO_FROM_CAMERA);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(this,
+                        "com.druzbanarodov.relativlayoutjava.fileprovider",
+                        photoFile);
+                traditionImagesUris.put(selectedImageIndex, photoURI);
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                startActivityForResult(intent, TAKE_PHOTO_FROM_CAMERA);
+            }
+        }
     }
 
-    private Uri createImageUri() {
-        String imageName = dateToString(Calendar.getInstance().getTime()) + ".jpg";
-        File parent = Add_Tradition_Activity.this.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        //File parent = Add_Tradition_Activity.this.getExternalFilesDir("Pictures");
-        ContentValues values = new ContentValues(1);//количество контента
-        Uri fileUri;
-        values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpg"); // тип выбираемых файлов*/
+    String currentPhotoPath;
 
-        //прредоставление доступа поставщика контента для передачи сложного контента другим приложениям
-        fileUri = Add_Tradition_Activity.this.getContentResolver()
-                .insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                        values);
-        System.out.println(imageName);
-        System.out.println(fileUri);
-        return Uri.fromFile(new File(parent, imageName));
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        currentPhotoPath = image.getAbsolutePath();
+        return image;
     }
 
     private String dateToString(Date date) {
@@ -267,6 +286,9 @@ public class Add_Tradition_Activity extends AppCompatActivity{
                 traditionsPhotos.get(selectedImageIndex).setImageBitmap(bitmap);
             } else if (requestCode == TAKE_PHOTO_FROM_CAMERA) {
                 Uri imageUri = traditionImagesUris.get(selectedImageIndex);
+                System.out.println("Индекс изображения: " + selectedImageIndex);
+                System.out.println("Ссылка на изображение: " + imageUri);
+                System.out.println("Ссылка на изображение: " + currentPhotoPath);
                 traditionsPhotos.get(selectedImageIndex).setImageURI(imageUri);
             }
 
