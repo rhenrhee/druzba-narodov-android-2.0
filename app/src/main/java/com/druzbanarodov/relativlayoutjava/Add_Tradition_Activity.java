@@ -75,6 +75,8 @@ public class Add_Tradition_Activity extends AppCompatActivity{
         deleteTraditionImage0 = (ImageView) findViewById(R.id.image_remove_selected_image_0);
         deleteTraditionImage1 = (ImageView) findViewById(R.id.image_remove_selected_image_1);
         deleteTraditionImage2 = (ImageView) findViewById(R.id.image_remove_selected_image_2);
+
+        getTraditionImages();
         //attachment_item0.setImageURI(Uri.parse("/storage/emulated/0/Android/data/com.druzbanarodov.relativlayoutjava/files/Pictures/JPEG_20200824_210530_7688138698567539826.jpg"));
 
         //setupWidgets(view);
@@ -145,6 +147,33 @@ public class Add_Tradition_Activity extends AppCompatActivity{
                     File file = new File(imageUri.getPath());
                     file.delete();
                 }
+            }
+        });
+        send_traditional.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //int imageIndex = (Integer) v.getTag();
+                //Uri imageUri = createImageFile();
+                //ArrayList<Uri> uris = new ArrayList<>();
+                //Uri uri1 = traditionImagesUris.get(selectedImageIndex);
+                //Uri uri2 = traditionImagesUris.get(selectedImageIndex);
+                //Uri uri3 = traditionImagesUris.get(selectedImageIndex);
+                //uris.add(uri1);
+                //uris.add(uri2);
+                //uris.add(uri3);
+                File filelocation = new File(Environment.getExternalStorageDirectory(), currentPhotoPath);
+                System.out.println("Ссылка на изображение: " + currentPhotoPath);
+                //Uri path = Uri.fromFile(filelocation);
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setType("vnd.android.cursor.dir/email");
+                String to[] = {"marganez25@gmail.com"}; // Set email address recipient
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, to);
+                emailIntent.putExtra(Intent.EXTRA_STREAM, traditionImagesUris.get(selectedImageIndex)); // путь к файлам вложения
+                //emailIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris); // путь к файлам вложения
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Новая традиция от пользователя");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, about_tradition.getText().toString());
+                startActivity(Intent.createChooser(emailIntent , "Отправка сообщения..."));
+                //resetViews();
             }
         });
     }
