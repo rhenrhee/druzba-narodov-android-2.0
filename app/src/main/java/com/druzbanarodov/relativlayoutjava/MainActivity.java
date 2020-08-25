@@ -39,10 +39,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-//import android.support.v7.app.AppCompatActivity;
-
-//import android.content.DialogInterface;
-
 public class MainActivity extends AppCompatActivity
 {
 
@@ -128,21 +124,45 @@ public class MainActivity extends AppCompatActivity
                     editor.putString("email", save_email);
                     editor.putString("gender", gender);
 
-                    // Приложение было удалено и поставлено вновь. Попытка регистрации под тем же e-mail
+                    // Приложение было удалено и снова установлено. Попытка регистрации под тем же e-mail
+                    progressBar.cancel();
                     asyncSignInOrCreateUser(save_email, save_password, editor);
                 }
             });
         }
         else
         {
+            progressBar.cancel();
             // Пользователь есть в телефоне
             asyncSignInOrCreateUser(email_file, pass_file, null);
         }
     }
 
+    /*
+                            //write data to Firebase
+                        mAuth.createUserWithEmailAndPassword(save_email, save_password)
+                                .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                        if (task.isSuccessful()) {
+                                            // Sign in success, update UI with the signed-in user's information
+                                            Log.d(TAG, "createUserWithEmail:success");
+                                            FirebaseUser user = mAuth.getCurrentUser();
+                                            updateUI(user);
+                                        } else {
+                                            // If sign in fails, display a message to the user.
+                                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                                            Toast.makeText(MainActivity.this, "Authentication failed.",
+                                                    Toast.LENGTH_SHORT).show();
+                                            updateUI(null);
+                                        }
+                                    }
+                                });
+     */
+
     private void asyncSignInOrCreateUser(final String email, final String password, final SharedPreferences.Editor editor)
     {
-        progressBar.show();
+        //progressBar.show();
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(MainActivity.this, taskResult1 ->
                 {
@@ -150,14 +170,26 @@ public class MainActivity extends AppCompatActivity
                     {
                         taskResult1.getResult();
 
-                        // Аккаунт уже существует на сервере
-                        updateUI(mAuth.getCurrentUser());
-                        Intent intent = new Intent(MainActivity.this, Navigation_Nome_Menu.class);
-                        startActivity(intent);
-                        MainActivity.this.finish();
-                        progressBar.cancel();
-                        Toast.makeText(MainActivity.this, "Успешная авторизация", Toast.LENGTH_SHORT).show();
-                        if (editor != null) editor.commit();
+                        if (taskResult1.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "createUserWithEmail:success");
+                            // Аккаунт уже существует на сервере
+                            updateUI(mAuth.getCurrentUser());
+                            Intent intent = new Intent(MainActivity.this, Navigation_Nome_Menu.class);
+                            startActivity(intent);
+                            MainActivity.this.finish();
+                            progressBar.cancel();
+                            Toast.makeText(MainActivity.this, "Успешная авторизация", Toast.LENGTH_SHORT).show();
+                            if (editor != null) editor.commit();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            progressBar.cancel();
+                            Log.w(TAG, "createUserWithEmail:failure", taskResult1.getException());
+                            Toast.makeText(MainActivity.this, "Ошибка авторизации, неверный логин или пароль",
+                                    Toast.LENGTH_SHORT).show();
+                            //updateUI(null);
+                        }
+
                     }
                     catch (Exception ex1)
                     {
@@ -180,6 +212,7 @@ public class MainActivity extends AppCompatActivity
                                             }
                                             catch (Exception ex2)
                                             {
+                                                progressBar.cancel();
                                                 Toast.makeText(MainActivity.this, "Проблемы с сетью!", Toast.LENGTH_SHORT).show();
                                             }
                                         });
@@ -191,198 +224,6 @@ public class MainActivity extends AppCompatActivity
                         }
                     }
                 });
-    }
-
-    protected void onCreate2(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        final SharedPreferences sharedPreferences = getSharedPreferences("Content_main", Context.MODE_PRIVATE);//reference to shared preference file
-
-        // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
-
-        //Creating a shared preference file  to save the name ,mail address,password and also for setting the correct xml file
-        String name_file = sharedPreferences.getString("name", Default);
-        String pass_file = sharedPreferences.getString("password", Default);
-        String email_file = sharedPreferences.getString("email", Default);
-        String gender_file = sharedPreferences.getString("gender", Default);
-        SharedPreferences sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
-        if (name_file.equals(Default) || pass_file.equals(Default) || email_file.equals(Default) || gender_file.equals(Default)) {
-
-            setContentView(R.layout.activity_main);
-            NavigationView navigationView = findViewById(R.id.nav_view);
-//            navigationView.setItemIconTintList(null);
-
-            show = (Button) findViewById(R.id.show);  //Show button in password
-            edit_password = (EditText) findViewById(R.id.password);   //Password EditText
-            edit_email = (EditText) findViewById(R.id.email);   //email EditText
-            edit_name = (EditText) findViewById(R.id.name);   //name EditText
-            show.setOnClickListener(new showOrHidePassword());//invoking the showOrHidePassword class to show the password
-            toast = (TextView) findViewById(R.id.toast_help);//toast_help object
-
-
-            //Spinner for choosing the gender
-            spinner = (Spinner) findViewById(R.id.spinner);
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner, Gender);
-            adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-            spinner.setAdapter(adapter);
-            spinner.setOnItemSelectedListener(new spinner());
-            //
-            //Get started registration
-            getStarted = (Button) findViewById(R.id.getStarted);
-            getStarted.setOnClickListener(new View.OnClickListener()
-            {
-                    @Override
-                    public void onClick(View v) {
-                        //String save_name = edit_name.getText().toString();
-                        String save_name = "Dmitry";
-                        //System.out.println(""+save_name);
-                        //String save_email = edit_email.getText().toString();
-                        String save_email = "tcherbakoff2@rambler.ru";
-                        //System.out.println(""+save_email);
-                        //String save_password = edit_password.getText().toString();
-                        String save_password = "19Mama#";
-
-                    //If and else are used to check if all the three text field are empty or not
-                    if (save_name.equals("") || save_email.equals("") || save_password.equals("")) {
-                        try{
-                            Toast.makeText(MainActivity.this, "Пожалуйста, укажите детали", Toast.LENGTH_SHORT).show();
-                        }
-                        catch (Exception e)
-                        {}
-                    }
-                    else {
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("name", save_name);
-                        editor.putString("password", save_password);
-                        editor.putString("email", save_email);
-                        editor.putString("gender", gender);
-                        editor.commit();
-
-                        //write data to Firebase
-                        mAuth.createUserWithEmailAndPassword(save_email, save_password)
-                                .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<AuthResult> task) {
-                                        if (task.isSuccessful()) {
-                                            // Sign in success, update UI with the signed-in user's information
-                                            Log.d(TAG, "createUserWithEmail:success");
-                                            FirebaseUser user = mAuth.getCurrentUser();
-                                            updateUI(user);
-                                        } else {
-                                            // If sign in fails, display a message to the user.
-                                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                                            Toast.makeText(MainActivity.this, "Authentication failed.",
-                                                    Toast.LENGTH_SHORT).show();
-                                            updateUI(null);
-                                        }
-                                    }
-                                });
-
-                        progressBar = new ProgressDialog(v.getContext());//Create new object of progress bar type
-                        progressBar.setCancelable(false);//Progress bar cannot be cancelled by pressing any where on screen
-                        progressBar.setMessage("Создание профиля...");//Title shown in the progress bar
-                        progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);//Style of the progress bar
-                        progressBar.setProgress(0);//attributes
-                        progressBar.setMax(100);//attributes
-                        progressBar.show();//show the progress bar
-                        //This handler will add a delay of 3 seconds
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                //Intent start to open the navigation drawer activity
-                                progressBar.cancel();//Progress bar will be cancelled (hide from screen) when this run function will execute after 3.5seconds
-                                Intent intent = new Intent(MainActivity.this, Navigation_Nome_Menu.class);
-                                startActivity(intent);
-                                finish();
-                            }
-                        }, 3500);
-
-                    }
-
-                }
-            });
-
-        //if user was created
-        }
-        else
-        {
-            setContentView(R.layout.activity_main_second);
-            icon_user = (ImageView) findViewById(R.id.image_icon);
-            if (gender_file.equals("Муж")) {
-                icon_user.setImageResource(R.drawable.man);
-            } else {
-                icon_user.setImageResource(R.drawable.female);
-            }
-
-
-            name_display = (TextView) findViewById(R.id.name_display);
-            name_display.setText(name_file);
-            edit_password2 = (EditText) findViewById(R.id.password2);
-            show2 = (Button) findViewById(R.id.show2);
-            show2.setOnClickListener(new showOrHidePassword2());
-            forget = (TextView) findViewById(R.id.forget);
-            Continue = (Button) findViewById(R.id.Continue);
-
-            try {
-                Continue.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        String local_pass2 = edit_password2.getText().toString();
-                        if (sharedPreferences.getString("password", Default).equals(local_pass2)) {
-
-                            mAuth.signInWithEmailAndPassword(sharedPreferences.getString("email", Default), sharedPreferences.getString("password", Default))
-                                    .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<AuthResult> task) {
-                                            if (task.isSuccessful()) {
-                                                // Sign in success, update UI with the signed-in user's information
-                                                Log.d(TAG, "signInWithEmail:success");
-                                                FirebaseUser user = mAuth.getCurrentUser();
-                                                updateUI(user);
-                                            } else {
-                                                // If sign in fails, display a message to the user.
-                                                Log.w(TAG, "signInWithEmail:failure", task.getException());
-                                                Toast.makeText(MainActivity.this, "Authentication failed.",
-                                                        Toast.LENGTH_SHORT).show();
-                                                updateUI(null);
-                                            }
-                                        }
-                                    });
-
-                            progressBar = new ProgressDialog(v.getContext());//Create new object of progress bar type
-                            progressBar.setCancelable(false);//Progress bar cannot be cancelled by pressing any wher on screen
-                            progressBar.setMessage("Пожалуйста, подождите...");//Tiitle shown in the progress bar
-                            progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);//Style of the progress bar
-                            progressBar.setProgress(0);//attributes
-                            progressBar.setMax(100);//attributes
-                            progressBar.show();//show the progress bar
-                            //This handler will add a delay of 3 seconds
-                            new Handler().postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    //Intent start to open the navigation drawer activity
-                                    progressBar.cancel();//Progress bar will be cancelled (hide from screen) when this run function will execute after 3.5seconds
-                                    Intent intent = new Intent(MainActivity.this, Navigation_Nome_Menu.class);
-                                    startActivity(intent);
-                                    finish();
-                                }
-                            }, 2500);
-
-                        } else {
-                            Toast.makeText(MainActivity.this, "Пожалуйста, введите верный пароль", Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-                });
-            } catch (Exception e) {
-                Toast.makeText(MainActivity.this, "Предупреждение", Toast.LENGTH_SHORT).show();
-            }
-
-        }
-
-
-
     }
 
 
