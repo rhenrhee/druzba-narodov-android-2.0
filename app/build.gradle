@@ -67,5 +67,6 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     implementation 'com.github.burhanrashid52:PhotoEditor:v.1.0.0'
     implementation "com.makeramen:roundedimageview:2.3.0"
+    implementation 'com.google.android.gms:play-services-auth:18.1.0'
 
 }
