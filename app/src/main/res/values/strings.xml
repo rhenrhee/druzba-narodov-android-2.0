@@ -140,6 +140,9 @@
     <string name="prepare_battle_fragment_internet_connected">Интернет соединение восстановлено</string>
     <string name="prepare_battle_fragment_internet_connection_lost">Интернет соединение потеряно</string>
 
+   <string name="facebook_app_id">1677690292382758</string>
+   <string name="fb_login_protocol_scheme">fb1677690292382758</string>
+
    <string name="pick_action">Выберите действие</string>
    <string-array name="choice_items">
       <item>Сделать фото</item>

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1083428532919-1lb5ajckg5ooh2lq8coqpmsha6je6etj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.druzbanarodov.relativlayoutjava",
+            "certificate_hash": "dd8ee81bf4957886c2fc7cf3839f8299573fbcdd"
+          }
+        },
+        {
           "client_id": "1083428532919-2poe855ck2i8qel2uio41q7udku09b3g.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

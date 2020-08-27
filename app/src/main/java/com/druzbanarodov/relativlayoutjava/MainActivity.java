@@ -23,6 +23,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -33,6 +34,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -41,7 +49,9 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -49,12 +59,14 @@ public class MainActivity extends AppCompatActivity
 {
 
     private FirebaseAuth mAuth;
-
+    CallbackManager callbackManager;
     private static final String TAG = "EmailPassword";
     private static final int RC_SIGN_IN = 5;
 
     //variables
-    Button show, show2, getStarted, Continue, google_signIn_btn;
+    LoginButton loginButton;
+    Button show, show2, getStarted, Continue;
+    ImageButton google_signIn_btn, facebook_signIn_btn, twitter_signIn_button;
     EditText edit_password, edit_name, edit_email, edit_password2;
     TextView toast, name_display, forget;
     private final String Default = "N/A";
@@ -86,6 +98,7 @@ public class MainActivity extends AppCompatActivity
         progressBar.setProgress(0);
         progressBar.setMax(100);
 
+        callbackManager = CallbackManager.Factory.create();
 
 
         if (name_file.equals(Default) || pass_file.equals(Default) || email_file.equals(Default) || gender_file.equals(Default))
@@ -106,7 +119,13 @@ public class MainActivity extends AppCompatActivity
             spinner.setAdapter(adapter);
             spinner.setOnItemSelectedListener(new spinner());
             getStarted = (Button) findViewById(R.id.getStarted);
-            google_signIn_btn = (Button) findViewById(R.id.google_sign_in_button);
+            google_signIn_btn = (ImageButton) findViewById(R.id.google_sign_in_button);
+            facebook_signIn_btn = (ImageButton) findViewById(R.id.facebook_sign_in_button);
+            twitter_signIn_button = (ImageButton) findViewById(R.id.twitter_sign_in_button);
+
+            //Facebook auth
+            loginButton = (LoginButton) findViewById(R.id.login_button);
+            loginButton.setReadPermissions("email");
 
             getStarted.setOnClickListener(v ->
             {
@@ -151,6 +170,51 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 signIn();
+            }
+        });
+        facebook_signIn_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CallbackManager callbackManager = CallbackManager.Factory.create();
+                //facebookSign(view);
+            }
+        });
+    }
+
+    //Facebook auth event listener
+    public void facebookSign(View v){
+        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                handleFacebookToken(loginResult.getAccessToken());
+            }
+
+            @Override
+            public void onCancel() {
+                Toast.makeText(MainActivity.this, "Отмена авторизации",
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Toast.makeText(MainActivity.this, "Ошибка авторизации",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void handleFacebookToken(AccessToken accessToken) {
+        AuthCredential credential = FacebookAuthProvider.getCredential(accessToken.getToken());
+        mAuth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    updateUIwithFacebook(mAuth.getCurrentUser());
+                }
+                else {
+                    Toast.makeText(MainActivity.this, "Невозможно зарегистрироваться",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -236,6 +300,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
 
         // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
@@ -426,6 +491,22 @@ public class MainActivity extends AppCompatActivity
 
 
     }
+
+    private void updateUIwithFacebook(FirebaseUser currentUser) {
+        final SharedPreferences sharedPreferences = getSharedPreferences("Content_main", Context.MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
+        System.out.println("Email пользователя: " + currentUser.getEmail());
+        editor.putString("name", currentUser.getDisplayName());
+        editor.putString("email", currentUser.getEmail());
+        //editor.putString("email", account.getEmail());
+        editor.commit();
+        Intent intent = new Intent(MainActivity.this, Navigation_Nome_Menu.class);
+        startActivity(intent);
+        MainActivity.this.finish();
+        progressBar.cancel();
+        Toast.makeText(MainActivity.this, "Успешная регистрация", Toast.LENGTH_SHORT).show();
+    }
+
     private void updateUIwithGoogle(GoogleSignInAccount account) {
         final SharedPreferences sharedPreferences = getSharedPreferences("Content_main", Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPreferences.edit();
