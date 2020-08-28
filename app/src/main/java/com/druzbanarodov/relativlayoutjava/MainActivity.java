@@ -45,6 +45,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -65,8 +66,9 @@ public class MainActivity extends AppCompatActivity
 
     //variables
     LoginButton loginButton;
+    SignInButton signInButton;
     Button show, show2, getStarted, Continue;
-    ImageButton google_signIn_btn, facebook_signIn_btn, twitter_signIn_button;
+    ImageButton googleSignInButton, facebook_signIn_btn, twitter_signIn_button;
     EditText edit_password, edit_name, edit_email, edit_password2;
     TextView toast, name_display, forget;
     private final String Default = "N/A";
@@ -119,10 +121,13 @@ public class MainActivity extends AppCompatActivity
             spinner.setAdapter(adapter);
             spinner.setOnItemSelectedListener(new spinner());
             getStarted = (Button) findViewById(R.id.getStarted);
-            google_signIn_btn = (ImageButton) findViewById(R.id.google_sign_in_button);
-            facebook_signIn_btn = (ImageButton) findViewById(R.id.facebook_sign_in_button);
-            twitter_signIn_button = (ImageButton) findViewById(R.id.twitter_sign_in_button);
+            googleSignInButton = (ImageButton) findViewById(R.id.google_sign_in_button);
+            //facebook_signIn_btn = (ImageButton) findViewById(R.id.facebook_sign_in_button);
+            //twitter_signIn_button = (ImageButton) findViewById(R.id.twitter_sign_in_button);
 
+
+            //Google auth button
+            //signInButton = (SignInButton) findViewById(R.id.sign_in_button);
             //Facebook auth
             loginButton = (LoginButton) findViewById(R.id.login_button);
             loginButton.setReadPermissions("email");
@@ -166,19 +171,24 @@ public class MainActivity extends AppCompatActivity
             asyncSignInOrCreateUser(email_file, pass_file, null);
         }
 
-        google_signIn_btn.setOnClickListener(new View.OnClickListener() {
+
+       /* googleSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 signIn();
             }
-        });
-        facebook_signIn_btn.setOnClickListener(new View.OnClickListener() {
+        });*/
+        /*facebook_signIn_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 CallbackManager callbackManager = CallbackManager.Factory.create();
                 //facebookSign(view);
             }
-        });
+        });*/
+    }
+
+    public void googleSignIn(View v) {
+                signIn();
     }
 
     //Facebook auth event listener

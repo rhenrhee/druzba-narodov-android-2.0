@@ -132,48 +132,22 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:onClick="facebookSign"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_below="@id/relative"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
-    <ImageButton
-        android:id="@+id/google_sign_in_button"
-        android:background="@drawable/ic_google_auth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/relative"
-        android:layout_marginTop="90dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="120dp"
         />
-    <ImageButton
-        android:id="@+id/facebook_sign_in_button"
-        android:background="@drawable/ic_facebook_auth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/relative"
-        android:onClick="facebookSign"
-        android:layout_marginTop="90dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="20dp"
-        />
-
-    <ImageButton
-        android:id="@+id/twitter_sign_in_button"
-        android:background="@drawable/ic_twitter_auth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/relative"
-        android:layout_marginTop="90dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginRight="30dp"
-        />
-    </LinearLayout>
+<ImageButton
+    android:id="@+id/google_sign_in_button"
+    android:background="@drawable/ic_google_auth"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/relative"
+    android:onClick="googleSignIn"
+    android:layout_marginTop="180dp"
+    android:layout_marginStart="180dp"
+    android:layout_marginEnd="20dp"
+    />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

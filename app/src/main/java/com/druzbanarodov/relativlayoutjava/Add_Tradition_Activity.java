@@ -166,7 +166,7 @@ public class Add_Tradition_Activity extends AppCompatActivity{
                 //Uri path = Uri.fromFile(filelocation);
                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
                 emailIntent.setType("vnd.android.cursor.dir/email");
-                String to[] = {"marganez25@gmail.com"}; // Set email address recipient
+                String to[] = {"druzbanarodovrus@gmail.com"}; // Set email address recipient
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, to);
                 emailIntent.putExtra(Intent.EXTRA_STREAM, traditionImagesUris.get(selectedImageIndex)); // путь к файлам вложения
                 //emailIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris); // путь к файлам вложения
