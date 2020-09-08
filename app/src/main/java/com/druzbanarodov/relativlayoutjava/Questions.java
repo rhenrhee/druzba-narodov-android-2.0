@@ -54,8 +54,6 @@ public class Questions extends AppCompatActivity
     PaleoAsianChukotkaKamchatka _paleoAsianChukotkaKamchatka;
     PaleoAsianEskimoAleutian _paleoAsianEskimoAleutian;
     PaleoAsianyEnisei _paleoAsianyEnisei;
-    Maths _maths;
-    Science _science;
     public int visibility = 0,
             branch1 = 0, branch2 = 0, branch3 = 0, branch4 = 0,
             branch5 = 0, branch6 = 0, branch7 = 0, branch8 = 0,
@@ -202,18 +200,6 @@ public class Questions extends AppCompatActivity
         _paleoAsianyEnisei.createDatabase();
         _paleoAsianyEnisei.openDatabase();
         _paleoAsianyEnisei.getWritableDatabase();
-
-        //
-        _maths = new Maths(this);
-        _maths.createDatabase();
-        _maths.openDatabase();
-        _maths.getWritableDatabase();
-
-        //
-        _science = new Science(this);
-        _science.createDatabase();
-        _science.openDatabase();
-        _science.getWritableDatabase();
 
         //Till here we are linking the database file
         OptA = (Button) findViewById(R.id.OptionA);

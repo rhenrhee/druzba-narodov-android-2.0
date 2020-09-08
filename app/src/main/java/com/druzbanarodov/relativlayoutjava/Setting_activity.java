@@ -24,7 +24,6 @@ public class Setting_activity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         final SharedPreferences sharedPreferences = getSharedPreferences("Score", Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPreferences.edit();
-        final Button sound = (Button) findViewById(R.id.play_sound);
         Button reset = (Button) findViewById(R.id.reset);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         reset.setOnClickListener(new View.OnClickListener() {

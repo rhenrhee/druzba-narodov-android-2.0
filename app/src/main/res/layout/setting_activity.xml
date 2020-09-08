@@ -55,15 +55,6 @@
             android:background="#a3a3a3" />
 
 
-            <Button
-                android:id="@+id/play_sound"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:background="?attr/selectableItemBackground"
-                android:textAllCaps="false"
-                android:textColor="#1c1c1c"
-                android:textSize="18sp" />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"

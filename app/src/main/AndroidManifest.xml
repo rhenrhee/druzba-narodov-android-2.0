@@ -79,16 +79,6 @@
                 android:value="com.druzbanarodov.relativlayoutjava.Navigation_Family" />
         </activity>
         <activity
-            android:name="com.druzbanarodov.relativlayoutjava.AboutUs"
-            android:label="@string/title_activity_about_us"
-            android:parentActivityName="com.druzbanarodov.relativlayoutjava.Navigation_Activity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.druzbanarodov.relativlayoutjava.Navigation_Activity" />
-        </activity>
-        <activity
             android:name="com.druzbanarodov.relativlayoutjava.multyplayer.MultiplyerQuestions"
             android:label="Вопросы"
             android:parentActivityName="com.druzbanarodov.relativlayoutjava.Navigation_Nome_Menu"
