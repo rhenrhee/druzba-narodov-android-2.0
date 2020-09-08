@@ -56,6 +56,8 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Arrays;
+
 public class MainActivity extends AppCompatActivity
 {
 
@@ -65,9 +67,9 @@ public class MainActivity extends AppCompatActivity
     private static final int RC_SIGN_IN = 5;
 
     //variables
-    LoginButton loginButton;
+    //LoginButton loginButton;
     SignInButton signInButton;
-    Button show, show2, getStarted, Continue;
+    Button show, show2, getStarted, Continue, loginButton;
     ImageButton googleSignInButton, facebook_signIn_btn, twitter_signIn_button;
     EditText edit_password, edit_name, edit_email, edit_password2;
     TextView toast, name_display, forget;
@@ -129,8 +131,8 @@ public class MainActivity extends AppCompatActivity
             //Google auth button
             //signInButton = (SignInButton) findViewById(R.id.sign_in_button);
             //Facebook auth
-            loginButton = (LoginButton) findViewById(R.id.login_button);
-            loginButton.setReadPermissions("email");
+            loginButton = (Button) findViewById(R.id.facebook_sign);
+            //loginButton.setReadPermissions("email");
 
             getStarted.setOnClickListener(v ->
             {
@@ -172,6 +174,33 @@ public class MainActivity extends AppCompatActivity
         }
 
 
+
+        /*loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "Клик по кнопке",
+                        Toast.LENGTH_SHORT).show();
+                LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        handleFacebookToken(loginResult.getAccessToken());
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        Toast.makeText(MainActivity.this, "Отмена авторизации",
+                                Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(FacebookException error) {
+                        Toast.makeText(MainActivity.this, "Ошибка авторизации",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });*/
+
        /* googleSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -185,6 +214,44 @@ public class MainActivity extends AppCompatActivity
                 //facebookSign(view);
             }
         });*/
+    }
+
+    public void fbLogin(View view)
+    {
+        // Before Edit:
+        // LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("user_photos", "email", "public_profile", "user_posts" , "AccessToken"));
+
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("user_photos", "email"));
+       // LoginManager.getInstance().logInWithPublishPermissions(this, Arrays.asList("publish_actions"));
+        LoginManager.getInstance().registerCallback(callbackManager,
+                new FacebookCallback<LoginResult>()
+                {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        handleFacebookToken(loginResult.getAccessToken());
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        Toast.makeText(MainActivity.this, "Отмена авторизации",
+                                Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(FacebookException error) {
+                        Toast.makeText(MainActivity.this, "Ошибка авторизации",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    public void onClick(View v) {
+        if (v == loginButton) {
+            LoginManager.getInstance().logInWithReadPermissions(
+                    this,
+                    Arrays.asList("user_photos", "email")
+            );
+        }
     }
 
     public void googleSignIn(View v) {
