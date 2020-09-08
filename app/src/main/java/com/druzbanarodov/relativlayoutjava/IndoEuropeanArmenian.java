@@ -14,7 +14,6 @@ import java.util.Locale;
 
 //Индоевропейская семья армянская ветвь
 public class IndoEuropeanArmenian extends SQLiteOpenHelper {
-    //private static final String Database_path = "/data/data/com.kvikesh800gmail.relativlayoutjava/databases/";
     private static final String Database_path = "/data/data/com.druzbanarodov.relativlayoutjava/";
     private static final String Database_name = "indoeuropeanarmenian.db";//NAME of database stored in Assets folder
     private static final String Table_name = "indoeuropeanarmenian";//name of table

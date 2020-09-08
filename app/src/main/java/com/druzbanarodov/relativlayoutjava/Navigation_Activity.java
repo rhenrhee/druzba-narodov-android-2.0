@@ -68,16 +68,6 @@ public class Navigation_Activity extends AppCompatActivity
         } else {
             nav_header_imag.setImageResource(R.drawable.female);
         }
-        c1 = (Button) findViewById(R.id.b1);
-        c2 = (Button) findViewById(R.id.b2);
-        c3 = (Button) findViewById(R.id.b3);
-        c4 = (Button) findViewById(R.id.b4);
-        c5 = (Button) findViewById(R.id.b5);
-        c6 = (Button) findViewById(R.id.b6);
-        c7 = (Button) findViewById(R.id.b7);
-        c8 = (Button) findViewById(R.id.b8);
-        c9 = (Button) findViewById(R.id.b9);
-        c10 = (Button) findViewById(R.id.b10);
         c11 = (Button) findViewById(R.id.b11);
         c12 = (Button) findViewById(R.id.b12);
         c13 = (Button) findViewById(R.id.b13);

@@ -1,14 +1,10 @@
 <resources>
     <string name="app_name">Дружба народов</string>
-    <string name="toast_message">"1.   Введите Ваше имя, которое будет отображаться в профиле.
-
- 2.   Введите верный адрес электронной почты.
-        например:   abc@xyz.com
-
- 3.   Придумайте пароль к Вашему профилю
-        для обеспечения безопасности.
-
-              Наслаждайтесь игрой! ☺</string>
+    <string name="toast_message">"
+       1. Введите Ваше имя, которое будет отображаться в профиле.
+       2. Введите верный адрес электронной почты, например: ivan@gmail.com
+       3. Придумайте пароль к Вашему профилю для обеспечения безопасности.
+       Наслаждайтесь игрой! ☺</string>
     <string name="title_activity_main2">Main2Activity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -17,7 +13,7 @@
     <string name="title_activity_navigation_activity">Дружба народов</string>
     <string name="title_activity_navigation_">Главное меню</string>
     <string name="title_activity_about_us">О приложении</string>
-    <string name="note">Дружба народов - это умное приложение с простым и оптимизированным пользовательским интерфейсом. Дружба народов имеет все категории вопросов викторины, которые используются в изучении разных культур разных народов</string>
+    <string name="note">Дружба народов - это умное приложение с простым и оптимизированным пользовательским интерфейсом. Дружба народов имеет все категории вопросов викторины, которые используются в изучении разных культур разных народов.</string>
     <string name="title_activity_settings">Настройки</string>
     <string name="title_activity_questions">Вопросы</string>
     <string name="title_activity_main3">Main3Activity</string>
